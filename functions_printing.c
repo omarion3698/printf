@@ -49,12 +49,12 @@ int print_number(va_list args)
 	if (number < 0)
 	{
 		number *= -1;
-		_putchar('-');
+		_putchar(45);
 		counter++;
 	}
 	if (number >= 0 && number <= 9)
 	{
-		_putchar(number + '0');
+		_putchar(number + 48);
 		counter++;
 	}
 	if (number > 9)
@@ -69,7 +69,7 @@ int print_number(va_list args)
 		{
 			int digit = number / base;
 			number = number % base;
-			_putchar(digit + '0');
+			_putchar(digit + 48);
 			base /= 10;
 			counter++;
 		}
