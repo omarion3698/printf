@@ -19,6 +19,6 @@ int _printhex(unsigned int n, int uppercase);
 int _printhex_helper(unsigned int n, int width, int uppercase, int padder);
 int conv_specifier_p(void);
 int custom_conv(void);
-int 8_custom_len(void);
+
 
 #endif
