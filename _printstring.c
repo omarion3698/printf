@@ -17,6 +17,5 @@ int _printstr(char *str)
 		_putchar(str[i]);
 		len++;
 	}
-	
 	return (len);
 }
