@@ -1,81 +1,77 @@
 #include "main.h"
 
 /**
- * _printf - prints formatted output to stdout
- * @format: format string containing directives for printing
- *
- * Return: the number of characters printed
+ * _printf - prints characters.
+ * @format: argument passed
+ * Return: null bytes printed.
  */
 int _printf(const char *format, ...)
 {
-	va_list args;
-	unsigned int i = 0, num_chars = 0;
+	va_list list;
+	unsigned int i = 0, characters_number = 0;
 
 	if (!format)
 		return (-1);
 
-	va_start(args, format);
-
-	while (format[i])
+	va_start(list, format);
+	for (i = 0; format[i] != '\0'; i++)
 	{
 		if (format[i] == '%')
 		{
 			if (format[i + 1] == '\0')
 				return (-1);
+
 			else if (format[i + 1] == '%')
 			{
 				_putchar('%');
-				num_chars++;
+				characters_number++;
 				i++;
 			}
-			else if (get_func(format[i + 1]))
+			else if (cmp_func(format[i + 1]) != NULL)
 			{
-				num_chars += get_func(format[i + 1])(args);
+				characters_number += (cmp_func(format[i + 1]))(list);
 				i++;
 			}
 			else
 			{
 				_putchar(format[i]);
-				num_chars++;
+				characters_number++;
 			}
 		}
 		else
 		{
 			_putchar(format[i]);
-			num_chars++;
+			characters_number++;
 		}
-		i++;
 	}
-
-	va_end(args);
-
-	return (num_chars);
+	va_end(list);
+	return (characters_number);
 }
 
 /**
- * get_func - returns a function pointer based on a format specifier
- * @c: the format specifier character
- *
- * Return: a function pointer to the appropriate printing function
+ * cmp_func - pointer function and its the entry point
+ * @a: character passed through as an argument
+ * Return: 0.
  */
-int (*get_func(char c))(va_list)
+int (*cmp_func(const char a))(va_list)
 {
-	print_fmt print_fmts[] = {
-		{'c', print_char},
+	print_f printf[] = {
+		{'c', printc},
 		{'s', print_string},
-		{'d', print_decimal},
-		{'i', print_decimal},
+		{'d', print_n},
+		{'i', print_n},
 		{'\0', NULL}
 	};
 
-	int i = 0;
+	int k;
 
-	while (print_fmts[i].fmt)
+	for (k = 0; printf[k].p != '\0'; k++)
 	{
-		if (print_fmts[i].fmt == c)
-			return (print_fmts[i].func);
-		i++;
+		if (printf[k].p == a)
+		{
+			return (printf[k].func);
+		}
 	}
 
-	return (NULL);
+	return (0);
 }
