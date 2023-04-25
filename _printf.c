@@ -36,6 +36,18 @@ int _printf(const char *format, ...)
 				case 'b':
 					len += _printbin(va_arg(args, unsigned int));
 					break;
+				case 'u':
+					len += _printuint(va_arg(args, unsigned int));
+					break;
+				case 'o':
+					len += _printoct(va_arg(args, unsigned int));
+					break;
+				case 'x':
+					len += _printhex(va_arg(args, unsigned int), 0);
+					break;
+				case 'X':
+					len += _printhex(va_arg(args, unsigned int), 1);
+					break;
 			}
 		}
 		else
