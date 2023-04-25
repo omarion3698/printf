@@ -18,5 +18,6 @@ int _printuint(unsigned int n);
 int _printoct(unsigned int n);
 int _printhex(unsigned int n, int uppercase);
 int _printhex_helper(unsigned int n, int width, int uppercase, int padder);
+int conv_specifier_p(void);
 
 #endif
