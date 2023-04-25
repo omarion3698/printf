@@ -19,3 +19,4 @@ int _printstr(char *str)
 	}
 	return (len);
 }
+
