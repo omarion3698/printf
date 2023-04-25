@@ -33,6 +33,9 @@ int _printf(const char *format, ...)
 				case 'i':
 					len += _printint(va_arg(args, int));
 					break;
+				case 'b':
+					len += _printbin(va_arg(args, unsigned int));
+					break;
 			}
 		}
 		else

@@ -14,5 +14,6 @@ int main(void)
 	_printf("Len:[%d]\n", len);
 	printf("Len:[%d]\n", len2);
 	_printf("Negative:[%d]\n", -762534);
+	_printf("%b\n", 98);
 	return (0);
 }

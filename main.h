@@ -11,6 +11,7 @@ int _printf(const char *format, ...);
 int _printchar(char c);
 int _printstr(char *str);
 int _printint(int n);
+int _printbin(unsigned int n);
 
 
 #endif
