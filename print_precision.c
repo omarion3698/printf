@@ -41,11 +41,11 @@ void print_with_precision(const char* format, ...)
 					int value = va_arg(args, int);
 					if (precision == -1)
 					{
-						printf("%d", value);
+						_printf("%d", value);
 					}
 					else
 					{
-						printf("%.*d", precision, value);
+						_printf("%.*d", precision, value);
 					}
 					break;
 				}
@@ -55,11 +55,11 @@ void print_with_precision(const char* format, ...)
 
 					if (precision == -1)
 					{
-						printf("%f", value);
+						_printf("%f", value);
 					}
 					else
 					{
-						printf("%.*f", precision, value);
+						_printf("%.*f", precision, value);
 					}
 					break;
 				}
@@ -69,16 +69,16 @@ void print_with_precision(const char* format, ...)
 
 					if (precision == -1)
 					{
-						printf("%s", value);
+						_printf("%s", value);
 					}
 					else
 					{
-						printf("%.*s", precision, value);
+						_printf("%.*s", precision, value);
 					}
 					break;
 				}
 			default:
-				printf("Error: unsupported format specifier '%c'\n", specifier);
+				_printf("Error: unsupported format specifier '%c'\n", specifier);
 				return;
 		}
 	}
