@@ -27,9 +27,9 @@ int _printf(const char *format, ...)
 				characters_number++;
 				i++;
 			}
-			else if (cmp_func(format[i + 1]) != NULL)
+			else if (get_func(format[i + 1]) != NULL)
 			{
-				characters_number += (cmp_func(format[i + 1]))(list);
+				characters_number += (get_func(format[i + 1]))(list);
 				i++;
 			}
 			else
@@ -49,17 +49,17 @@ int _printf(const char *format, ...)
 }
 
 /**
- * cmp_func - pointer function and its the entry point
+ * get_func - pointer function and its the entry point
  * @a: character passed through as an argument
  * Return: 0.
  */
-int (*cmp_func(const char a))(va_list)
+int (*get_func(const char a))(va_list)
 {
 	print_f printf[] = {
-		{'c', printc},
+		{'c', print_char},
 		{'s', print_string},
-		{'d', print_n},
-		{'i', print_n},
+		{'d', print_number},
+		{'i', print_number},
 		{'\0', NULL}
 	};
 
