@@ -13,7 +13,6 @@ int _printchar(char c);
 int _printstr(char *str);
 int _printint(int n);
 int _printbin(unsigned int n);
-void print_string(char *str);
 int _printuint(unsigned int n);
 int _printoct(unsigned int n);
 int _printhex(unsigned int n, int uppercase);
