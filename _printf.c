@@ -60,25 +60,3 @@ int _printf(const char *format, ...)
 	return (len);
 }
 
-/**
-  * print_string - function that takes a string as input and
-  * prints it with the custom coversion specifier %S
-  * @str: takes the string as a parameter
-  */
-
-void print_string(char *str)
-{
-	while (*str)
-	{
-		if (*str < 32 || *str >= 127)
-		{
-			printf("\\x%02X", (unsigned int)*str);
-		}
-		else
-		{
-			printf("%c", *str);
-		}
-		str++;
-	}
-}
-
